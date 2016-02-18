@@ -1,20 +1,7 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-02-18T22:54:10
-#
-#-------------------------------------------------
+TEMPLATE    = subdirs
+SUBDIRS     = mainwindow \
+              plugin
 
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = QtPlugin
-TEMPLATE = app
-
-
-SOURCES += main.cpp\
-        mainwindow.cpp
-
-HEADERS  += mainwindow.h
-
-FORMS    += mainwindow.ui
+# install
+target.path = /home/pabloz/Qt/Projects/QtPlugin
+INSTALLS += target
