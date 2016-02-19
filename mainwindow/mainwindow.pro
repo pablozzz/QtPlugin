@@ -16,5 +16,5 @@ win32 {
 }
 
 # install
-target.path = /home/pabloz/Qt/Projects/QtPlugin
+target.path = D:\Qt\Projects\QtPlugin
 INSTALLS += target

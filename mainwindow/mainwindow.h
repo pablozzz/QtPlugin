@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QtWidgets>
 #include <myplugininterface.h>
 
 class QString;
@@ -18,17 +19,17 @@ public:
     MainWindow();
 
 private slots:
-    void sendEcho();
+    void start_plugin();
 
 private:
     void createGUI();
     bool loadPlugin();
 
     MyPluginInterface *myPluginInterface;
-    QLineEdit *lineEdit;
     QLabel *label;
     QPushButton *button;
-    QGridLayout *layout;
+    QPushButton *exit_button;
+    QVBoxLayout *layout;
 };
 
 #endif // MAINWINDOW_H

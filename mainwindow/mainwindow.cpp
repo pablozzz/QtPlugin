@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 
-#include <QtWidgets>
 
 MainWindow::MainWindow()
 {
@@ -10,36 +9,30 @@ MainWindow::MainWindow()
 
     if (!loadPlugin()) {
         QMessageBox::information(this, "Error", "Could not load the plugin");
-        lineEdit->setEnabled(false);
-        button->setEnabled(false);
     }
 }
 
-void MainWindow::sendEcho()
+void MainWindow::start_plugin()
 {
-    QString text = myPluginInterface->echo(lineEdit->text());
-    label->setText(text);
+    bool plugin_started = myPluginInterface->show_window();
+
 }
 
 void MainWindow::createGUI()
 {
-    lineEdit = new QLineEdit;
-    label = new QLabel;
-    label->setFrameStyle(QFrame::Box | QFrame::Plain);
-    button = new QPushButton(tr("Send Message"));
+    label = new QLabel("Press button to start plugin:");
 
-    connect(lineEdit, SIGNAL(editingFinished()),
-            this, SLOT(sendEcho()));
+    button = new QPushButton("Start Plugin");
     connect(button, SIGNAL(clicked()),
-            this, SLOT(sendEcho()));
+            this, SLOT(start_plugin()));
 
-    layout = new QGridLayout;
-    layout->addWidget(new QLabel(tr("Message:")), 0, 0);
-    layout->addWidget(lineEdit, 0, 1);
-    layout->addWidget(new QLabel(tr("Answer:")), 1, 0);
-    layout->addWidget(label, 1, 1);
-    layout->addWidget(button, 2, 1, Qt::AlignRight);
-    layout->setSizeConstraint(QLayout::SetFixedSize);
+    exit_button = new QPushButton("Exit");
+    connect(exit_button,SIGNAL(clicked(bool)),this,SLOT(close()));
+
+    layout = new QVBoxLayout;
+    layout->addWidget(label);
+    layout->addWidget(button);
+    layout->addWidget(exit_button);
 }
 
 bool MainWindow::loadPlugin()

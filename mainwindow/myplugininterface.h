@@ -7,7 +7,7 @@ class MyPluginInterface
 {
 public:
     virtual ~MyPluginInterface() {}
-    virtual QString echo(const QString &message) = 0;
+    virtual bool show_window() = 0;
 };
 
 #define MyPluginInterface_iid "MyPluginInterface"

@@ -7,8 +7,8 @@ SOURCES         = myplugin.cpp
 TARGET          = $$qtLibraryTarget(myplugin)
 DESTDIR         = ../plugins
 
-EXAMPLE_FILES = echoplugin.json
+EXAMPLE_FILES = myplugin.json
 
 # install
-target.path = /home/pabloz/Qt/Projects/QtPlugin/plugin
+target.path = D:\Qt\Projects\QtPlugin
 INSTALLS += target
